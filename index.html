@@ -21,11 +21,11 @@
 	<script>
 	
 	$(document).ready(function(){
-	  	$const params = new URLSearchParams(window.location.search);
-		$var nametag = params.get('name');
-		$console.log(nametag);
+	  	const params = new URLSearchParams(window.location.search);
+		var nametag = params.get('name');
+		console.log(nametag);
 		$document.getElementById('tag').value = nametag;
-		$console.log(document.getElementById('tag').value);
+		console.log(document.getElementById('tag').value);
 	});
 	
 	</script>
