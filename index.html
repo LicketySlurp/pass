@@ -1,83 +1,36 @@
-<!DOCTYPE html>
+
+
+
+<!doctype HTML>
 <html>
-
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
-
-<script type="text/javascript" src="navbar.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="css/main.css">
-<script>
-  $(document).ready(function(){
-  
-  $("button").click(function(){
-
-    if($("button").text() == "☰"){
-      $("button").text("🞬");
-    }else{
-      $("button").text("☰");
-    }
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
-    $("li").toggle("fast");
-  });  
-});
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+	      <a-plane rotation="-90 0 0" opacity="0.0">
+      <a-text id = "tag" value="LinkedIn: www.linkedin.com/in/rohan-shiva-791731185/ \n Discord: spongedungeon#3376 \n Org: Futurist Academy \n Interest: AI, IoT, Hardware \n Location: Eden Prairie \n Status: Seeking a Job" z-offset="1"></a-text>
+           </a-plane>
+		<a-marker-camera preset='hiro'></a-marker-camera>
+	<script>
+	const params = new URLSearchParams(window.location.search);
+	var nametag = params.get('name');
+	console.log(nametag);
+	document.getElementById('tag').value = nametag;
+	console.log(document.getElementById('tag').value);
+	</script>
+	    
+	<a-marker-camera preset='hiro'></a-marker-camera>
+	
+	
 
-
-</script>
-
-</head>
-
-<body>
-  <title>intelliTAG</title>
-  <nav>
-    <ul>
-      <button>🞬</button>
-      <li>
-        <a> intelliTAG </a>
-      </li>
-      <li>
-        <!-- link one -->
-        <a href="index.html"> Make </a>
-      </li>
-      <li>
-        <!-- link two -->
-        <a href="qr.html"> Scan </a>
-      </li>
-      <li>
-          <a href="ar.html"> AR </a>
-      </li>
-    </ul>
-  </nav>
-  <input type = "text" id = "Name" placeholder="Enter Name">
-  <input type = "text" id = "Organization" placeholder="Enter Organization">
-  <input type = "text" id = "Interests" placeholder="Enter Interest">
-  <input type = "text" id = "JobStatus" placeholder="Enter JobStatus">
-  <input type="button" value="Make QR Code" onclick="generateQRCode()">
-
-  <div>
-    <canvas id="qr">
-
-    </canvas>
-  </div>
-  <script src="qrious.min.js"></script>
-  <script>
-    function generateQRCode(){
-      var name = document.getElementById("name")
-      var organization = document.getElementById("Organization")
-      var interests = document.getElementById("Interests")
-      var jobstatus = document.getElementById("JobStatus")
-      var data = "ar.html?name=" + name + "&organization=" + organization + "&interests=" + interests + "&jobstatus=" + jobstatus
-
-      var qr = new QRious({
-        element:document.getElementById("qr"), value:data, 
-        size:"250", background:"white", foreground:"#5d57ff", 
-        padding:"20", level:"L", foregroundAlpha:"2.8"
-      })
-    }
-  </script>
-  
-
-  
-</body>
-
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 </html>
