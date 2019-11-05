@@ -13,9 +13,7 @@
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
-	      <a-plane rotation="-90 0 0" opacity="0.0">
-      <a-text id = "tag" value="LinkedIn: www.linkedin.com/in/rohan-shiva-791731185/ \n Discord: spongedungeon#3376 \n Org: Futurist Academy \n Interest: AI, IoT, Hardware \n Location: Eden Prairie \n Status: Seeking a Job" z-offset="1"></a-text>
-           </a-plane>
+
 		<a-marker-camera preset='hiro'></a-marker-camera>
 	<script>
 	const params = new URLSearchParams(window.location.search);
@@ -25,7 +23,10 @@
 	console.log(document.getElementById('tag').value);
 	</script>
 	    
-	<a-marker-camera preset='hiro'></a-marker-camera>
+	<a-plane rotation="-90 0 0" opacity="0.0">
+      <a-text id = "tag" value="LinkedIn: www.linkedin.com/in/rohan-shiva-791731185/ \n Discord: spongedungeon#3376 \n Org: Futurist Academy \n Interest: AI, IoT, Hardware \n Location: Eden Prairie \n Status: Seeking a Job" z-offset="1"></a-text>
+           </a-plane>
+	
 	
 	
 
