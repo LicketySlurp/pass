@@ -30,22 +30,6 @@
 		return nametag;
 	};
 	*/
-			AFRAME.registerComponent('ar-n', {
-  init: function() {
-    var el = this.el;
-    this.ready = false;
-      el.addEventListener('textfontset', function() {
-      this.ready = true;
-    }.bind(this));
-  },
-  tick: function() {
-    var el = this.el;
-    if (!this.ready) {
-      return;
-    }
-    el.setAttribute('value', 'rag');
-  }
-});
 	</script>
 
 	
